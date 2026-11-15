@@ -5,168 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>自由 · 法律 / LINUX / 哲学</title>
   <meta name="description" content="一个关于自由的个人博客：法律的边界、哲学的追问，与 Linux 的开源精神。">
-  <style>
-    :root {
-      --paper: #F4F2ED;   /* 纸白 */
-      --ink:   #111214;   /* 墨黑 */
-      --red:   #E6331A;   /* 朱红 */
-      --white: #FBF9F4;
-      --muted: #7A7B7E;
-      --line:  rgba(17, 18, 20, .16);
-      --serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
-      --sans:  -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-      --mono:  "SF Mono", "JetBrains Mono", "Roboto Mono", Consolas, "Courier New", monospace;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
-
-    /* ---------- 页眉 ---------- */
-    .site-header {
-      display: flex; align-items: baseline; justify-content: space-between;
-      padding: 22px 0; border-bottom: 1px solid var(--line);
-    }
-    .brand {
-      font-family: var(--serif); font-size: 1.5rem; font-weight: 700;
-      letter-spacing: .08em; color: var(--ink); text-decoration: none;
-    }
-    .brand i { color: var(--red); font-style: normal; }
-    .header-meta {
-      font-family: var(--mono); font-size: .72rem; letter-spacing: .18em;
-      color: var(--muted); text-transform: uppercase;
-    }
-
-    /* ---------- 首屏 ---------- */
-    .hero { background: var(--ink); color: var(--white); }
-    .hero-inner { padding: clamp(64px, 10vw, 120px) 0 clamp(52px, 8vw, 92px); }
-    .eyebrow {
-      display: flex; align-items: center; gap: 12px;
-      font-family: var(--mono); font-size: .75rem; letter-spacing: .22em;
-      color: var(--red); text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--red); }
-    .hero-title {
-      font-family: var(--serif); font-weight: 600;
-      font-size: clamp(5rem, 16vw, 12rem); line-height: .98;
-      letter-spacing: .04em; margin: 34px 0 22px;
-    }
-    .hero-title span { color: var(--red); }
-    .hero-sub {
-      font-family: var(--serif); letter-spacing: .06em;
-      font-size: clamp(1.1rem, 2.4vw, 1.75rem); color: rgba(251, 249, 244, .86);
-    }
-    .hero-bottom {
-      margin-top: clamp(48px, 7vw, 84px); padding-top: 24px;
-      border-top: 1px solid rgba(251, 249, 244, .18);
-      display: flex; flex-wrap: wrap; gap: 28px;
-      align-items: flex-end; justify-content: space-between;
-    }
-    .quote {
-      font-family: var(--serif); font-size: .95rem; line-height: 1.9;
-      color: rgba(251, 249, 244, .64); max-width: 34ch;
-    }
-    .quote cite {
-      display: block; margin-top: 10px; font-style: normal;
-      font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; color: var(--red);
-    }
-    .hero-tags {
-      display: flex; gap: 14px; flex-wrap: wrap;
-      font-family: var(--mono); font-size: .78rem; letter-spacing: .12em;
-      color: rgba(251, 249, 244, .8);
-    }
-    .hero-tags span + span::before { content: "/"; margin-right: 14px; color: var(--red); }
-
-    /* ---------- 板块 ---------- */
-    .sections-head {
-      display: flex; align-items: baseline; justify-content: space-between;
-      padding: 56px 0 18px; border-bottom: 2px solid var(--ink);
-    }
-    .sections-head h2 { font-family: var(--serif); font-size: 1.35rem; letter-spacing: .06em; }
-    .sections-head span {
-      font-family: var(--mono); font-size: .72rem;
-      letter-spacing: .16em; color: var(--muted);
-    }
-    .grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      border-bottom: 1px solid var(--line);
-    }
-    .card {
-      display: flex; flex-direction: column; min-height: 340px;
-      padding: 34px 32px 38px; border-left: 1px solid var(--line);
-      transition: background .25s ease;
-    }
-    .card:first-child { border-left: none; padding-left: 0; }
-    .card:last-child { padding-right: 0; }
-    .card:hover { background: rgba(230, 51, 26, .045); }
-    .card-top {
-      display: flex; align-items: center; justify-content: space-between;
-      font-family: var(--mono); font-size: .72rem; letter-spacing: .14em;
-    }
-    .num { color: var(--red); font-size: .9rem; }
-    .status {
-      color: var(--muted); border: 1px solid var(--line);
-      border-radius: 100px; padding: 3px 10px; font-size: .65rem; letter-spacing: .08em;
-    }
-    .card h3 {
-      font-family: var(--serif); font-size: clamp(2rem, 3.4vw, 2.75rem);
-      letter-spacing: .06em; margin: 30px 0 4px; position: relative; width: fit-content;
-    }
-    .card h3::after {
-      content: ""; position: absolute; left: 0; bottom: -6px;
-      width: 0; height: 2px; background: var(--red); transition: width .3s ease;
-    }
-    .card:hover h3::after { width: 100%; }
-    .card .en {
-      font-family: var(--mono); font-size: .72rem; letter-spacing: .16em;
-      color: var(--muted); text-transform: uppercase;
-    }
-    .card .desc {
-      margin-top: auto; padding-top: 30px; max-width: 30ch;
-      font-size: .95rem; line-height: 1.85; color: #3B3C40;
-    }
-    .card .todo {
-      margin-top: 22px; padding-top: 14px; border-top: 1px dashed var(--line);
-      font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: var(--muted);
-    }
-
-    /* ---------- 页脚 ---------- */
-    .site-footer {
-      display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
-      padding: 28px 0 48px;
-      font-family: var(--mono); font-size: .7rem; letter-spacing: .1em; color: var(--muted);
-    }
-
-    /* ---------- 响应式 ---------- */
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-      .card, .card:first-child, .card:last-child {
-        border-left: none; border-top: 1px solid var(--line);
-        padding: 30px 0 34px; min-height: 0;
-      }
-      .card:first-child { border-top: none; }
-      .card .desc { padding-top: 22px; }
-      .hero-bottom { align-items: flex-start; flex-direction: column; }
-    }
-  </style>
+  <link rel="canonical" href="https://blog.lianglianglaw.cn/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="自由 · On Liberty">
+  <meta property="og:description" content="法律的边界、哲学的追问，与 Linux 的开源精神。">
+  <meta name="theme-color" content="#111214">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
   <header class="site-header wrap">
-    <a class="brand" href="#">自由<i>.</i></a>
+    <a class="brand" href="index.html">自由<i>.</i></a>
     <span class="header-meta">On Liberty · 持续更新</span>
   </header>
 
   <main>
-    <!-- 首屏：站点主题与定位，后期可直接替换标语 -->
+    <!-- 首屏：站点主题与定位 -->
     <section class="hero">
       <div class="wrap hero-inner">
         <p class="eyebrow">Personal Blog — 法律 · LINUX · 哲学</p>
@@ -185,16 +39,16 @@
       </div>
     </section>
 
-    <!-- 三大板块骨架：后续往每个 .card 内补充文章列表即可 -->
+    <!-- 三大板块：每篇文章是 articles/ 下的独立页面，在对应 .post-list 里加一条 <li> -->
     <section class="wrap" aria-label="内容板块">
       <div class="sections-head">
         <h2>三个截面</h2>
-        <span>THREE PERSPECTIVES / 内容完善中</span>
+        <span>THREE PERSPECTIVES</span>
       </div>
 
       <div class="grid">
 
-        <!-- 01 法律：后期在此补充文章条目，建议用 <ul><li><a href="文章链接">标题</a></li></ul> -->
+        <!-- 01 法律 -->
         <article class="card" id="law">
           <div class="card-top">
             <span class="num">01</span>
@@ -203,22 +57,29 @@
           <h3>法律</h3>
           <p class="en">Law · 自由的边界</p>
           <p class="desc">权利与义务的划定，让自由被保障，也由此被界定。</p>
-          <p class="todo">文章列表 · 待完善</p>
+          <ul class="post-list">
+            <li class="post-empty">文章筹备中</li>
+          </ul>
         </article>
 
-        <!-- 02 LINUX：后期在此补充文章条目 -->
+        <!-- 02 LINUX -->
         <article class="card" id="linux">
           <div class="card-top">
             <span class="num">02</span>
-            <span class="status">筹备中</span>
+            <span class="status">1 篇</span>
           </div>
           <h3>LINUX</h3>
           <p class="en">Open Source · 自由的实践</p>
           <p class="desc">可阅读、可修改、可再分发——自由被写进了许可证里。</p>
-          <p class="todo">文章列表 · 待完善</p>
+          <ul class="post-list">
+            <li>
+              <time datetime="2026-11-15">11.15</time>
+              <a href="articles/one-html-blog.html">我用一个 HTML 文件搭了个博客</a>
+            </li>
+          </ul>
         </article>
 
-        <!-- 03 哲学：后期在此补充文章条目 -->
+        <!-- 03 哲学 -->
         <article class="card" id="philosophy">
           <div class="card-top">
             <span class="num">03</span>
@@ -227,7 +88,9 @@
           <h3>哲学</h3>
           <p class="en">Philosophy · 自由的追问</p>
           <p class="desc">当外在的约束退场，人如何自主地选择，又为何负责。</p>
-          <p class="todo">文章列表 · 待完善</p>
+          <ul class="post-list">
+            <li class="post-empty">文章筹备中</li>
+          </ul>
         </article>
 
       </div>
@@ -236,7 +99,7 @@
 
   <footer class="site-footer wrap">
     <span>© 2026 自由 · ON LIBERTY</span>
-    <span>法律 / LINUX / 哲学 · 内容持续完善中</span>
+    <span>法律 / LINUX / 哲学</span>
   </footer>
 
 </body>
