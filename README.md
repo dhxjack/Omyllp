@@ -1,0 +1,2 @@
+# Omyllp
+law,linux,philosophy
