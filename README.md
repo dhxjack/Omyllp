@@ -2,7 +2,7 @@
 
 个人博客，主题「自由」，从法律、LINUX、哲学三个截面展开。
 
-线上地址：https://omyllp-10f3o3rg.maozi.io/
+线上地址：https://blog.lianglianglaw.cn/
 
 ## 结构
 
