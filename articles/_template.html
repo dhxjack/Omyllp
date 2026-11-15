@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     文章模板 · 用法
+     1. 复制本文件，重命名为英文小写短横线形式，例如 kejixianzhi.html
+     2. 全局替换所有【】占位内容
+     3. 目录里的每一项要和正文 h2 的 id 对应
+     4. 在 index.html 对应板块的 .post-list 里加一条 <li>
+     ============================================================ -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【文章标题】 · 自由</title>
+  <meta name="description" content="【一句话摘要，60~120 字，会出现在搜索结果里】">
+  <link rel="canonical" href="https://blog.lianglianglaw.cn/articles/【文件名】.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="【文章标题】">
+  <meta property="og:description" content="【摘要】">
+  <meta name="theme-color" content="#111214">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <header class="site-header wrap">
+    <a class="brand" href="../index.html">自由<i>.</i></a>
+    <!-- 板块与副题：01 法律 / 02 LINUX / 03 哲学 -->
+    <span class="header-meta">【板块】 · 【副题】</span>
+  </header>
+
+  <main>
+    <div class="article-wrap">
+      <article>
+
+        <header class="article-header">
+          <p class="article-kicker">【01 / LAW】</p>
+          <h1 class="article-title">【文章标题】</h1>
+          <p class="article-meta">
+            <span><time datetime="2026-11-15">【2026.11.15】</time></span>
+            <span>约【8】分钟</span>
+          </p>
+        </header>
+
+        <!-- 目录：条目与正文 h2 的 id 一一对应，不用时整段删掉 -->
+        <details class="toc" open>
+          <summary>目录</summary>
+          <ol>
+            <li><a href="#s1">【第一小节】</a></li>
+            <li><a href="#s2">【第二小节】</a></li>
+          </ol>
+        </details>
+
+        <div class="article-body">
+
+          <p>【导语：一到两句话把问题抛出来，不要铺垫太久。】</p>
+
+          <h2 id="s1">【第一小节】</h2>
+          <p>【正文段落。】</p>
+
+          <h2 id="s2">【第二小节】</h2>
+          <p>【正文段落。】</p>
+
+          <!-- 可选组件，按需保留：
+          <table>
+            <thead><tr><th>列一</th><th>列二</th></tr></thead>
+            <tbody><tr><td>内容</td><td>内容</td></tr></tbody>
+          </table>
+
+          <blockquote><p>需要强调的判断或引用。</p></blockquote>
+
+          <pre><code>代码或命令</code></pre>
+
+          <ul><li>要点一</li><li>要点二</li></ul>
+          -->
+
+        </div>
+
+        <nav class="article-nav">
+          <a href="../index.html">← 返回首页</a>
+          <span class="nav-next">【下一篇占位】</span>
+        </nav>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer wrap">
+    <span>© 2026 自由 · ON LIBERTY</span>
+    <span>法律 / LINUX / 哲学</span>
+  </footer>
+
+</body>
+</html>
